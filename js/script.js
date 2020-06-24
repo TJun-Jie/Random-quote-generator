@@ -92,38 +92,41 @@ const printQuote = () => {
   //Calling getRandomQuote() function
   let selectedQuote = getRandomQuote();
 
-  //declaring html variable
-  let html = ``;
+  //declaring html variable and adding the required fileds
+  let html =  
+  `
+  <p class="quote">${selectedQuote['quote']}</p>
+  <p class="source">${selectedQuote['source']}
+  `
 
-
-  //If object doesn't have citation and year
+// If object doesnt have citation and quote
   if (!selectedQuote.citation && !selectedQuote.year) {
-    html = 
-      `
-      <p class="quote">${selectedQuote['quote']}</p>
-      <p class="source">${selectedQuote['source']}</p>
-      `
-  // If object doesnt have citation
-  } else if (!selectedQuote.citation) {
-    html = 
+
+  } 
+
+
+//If object doesnt have citation
+  else if (!selectedQuote.citation && selectedQuote.year){
+    html += 
     `
-    <p class="quote">${selectedQuote['quote']}</p>
-    <p class="source">${selectedQuote['source']}<span class="year">${selectedQuote['year']}</span></p>
+      <span class="year">${selectedQuote['year']}</span></p>
     ` 
+  } 
 
   // If object doesn't have year
-  } else if (!selectedQuote.year) {
-    html = 
+  else if (!selectedQuote.year && selectedQuote.citation) {
+    html += 
     `
-    <p class="quote">${selectedQuote['quote']}</p>
-    <p class="source">${selectedQuote['source']}<span class="citation">${selectedQuote['citation']}</span></p>
+      <span class="citation">${selectedQuote['citation']}</span></p>
     `
+  }
+
+
   //If object has all the required values, [quote,source,citation,year]
-  } else {
-     html = 
+  else {
+     html += 
       `
-      <p class="quote">${selectedQuote['quote']}</p>
-      <p class="source">${selectedQuote['source']}<span class="citation">${selectedQuote['citation']}</span><span class="year">${selectedQuote['year']}</span></p>
+        <span class="citation">${selectedQuote['citation']}</span><span class="year">${selectedQuote['year']}</span></p>
       `
   }
  
