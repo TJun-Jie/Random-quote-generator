@@ -89,7 +89,6 @@ quotes.push(
 )
 
 
-
 //Random color function
 const getRandomColor  = () => {
   let red = Math.random() * 256;
@@ -100,8 +99,6 @@ const getRandomColor  = () => {
   return color;
   
 }
-
-
 
 /***
  * `getRandomQuote` function
@@ -127,7 +124,7 @@ const printQuote = () => {
   //Calling getRandomQuote() function
   let selectedQuote = getRandomQuote();
 
-  
+
   //declaring html variable and adding the required fileds
   let html =  
   `
@@ -139,7 +136,6 @@ const printQuote = () => {
   if (!selectedQuote.citation && !selectedQuote.year) {
 
   } 
-
 
 //If object doesnt have citation but has a year
   else if (!selectedQuote.citation && selectedQuote.year){
@@ -157,7 +153,6 @@ const printQuote = () => {
     `
   }
 
-
   //If object has all the required values, [quote,source,citation,year]
   else {
      html += 
@@ -166,19 +161,15 @@ const printQuote = () => {
       `
   }
 
-
   // Adding tags property into html if there is one
     if (selectedQuote['tags']){
       html += `<p>Tags: ${selectedQuote['tags']}</p>`
     }
   
-
   //generate random color and applying it when button is clicked
   let color = getRandomColor();
   document.querySelector('body').style.backgroundColor = getRandomColor();
  
-
-
   //Adding html from js file
   document.querySelector('div.quote-box').innerHTML = html
 
@@ -191,7 +182,6 @@ const printQuote = () => {
     printQuote()
   }, 20000) 
   
-
 }
 
 
