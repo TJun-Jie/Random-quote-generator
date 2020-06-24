@@ -3,15 +3,19 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+
+//use strict mode to make code less error-prone
+"use strict";
+
 
 /*** 
  * `quotes` array 
 ***/
 //Created empty quotes array to store Quotes(object)
-quotes = [];
+let quotes = [];
+
+
+
 
 //Adding quotes
 quotes.push(
@@ -30,8 +34,16 @@ quotes.push(
 
 quotes.push(
   {quote: "You cannot shake hands with a clenched fist.",
-  source: "Indira Gandhi"}
+  source: "Indira Gandhi",
+  }
 );
+
+quotes.push(
+  {quote: "Learning never exhausts the mind.",
+  source: "Leonardo da Vinci",
+  }
+)
+
 
 
 
@@ -43,16 +55,57 @@ quotes.push(
 ***/
 const getRandomQuote = () => {
   //random index of quotes array
- index = Math.floor( Math.random() * quotes.length);
- 
+ let index = Math.floor( Math.random() * quotes.length);
+
  return quotes[index];
 };
 
-console.log(getRandomQuote());
 
 /***
  * `printQuote` function
 ***/
+
+const printQuote = () => {
+  //Calling getRandomQuote() function
+  let selectedQuote = getRandomQuote();
+
+  //declaring html variable
+  let html = ``;
+
+
+  //If object doesn't have citation and year
+  if (!selectedQuote.citation && !selectedQuote.year) {
+    html = 
+      `
+      <p class="quote">${selectedQuote['quote']}</p>
+      <p class="source">${selectedQuote['source']}</p>
+      `
+  // If object doesnt have citation
+  } else if (!selectedQuote.citation) {
+    html = 
+    `
+    <p class="quote">${selectedQuote['quote']}</p>
+    <p class="source">${selectedQuote['source']}<span class="year">${selectedQuote['year']}</span></p>
+    ` 
+
+  // If object doesn't have year
+  } else if (!selectedQuote.year) {
+    html = 
+    `
+    <p class="quote">${selectedQuote['quote']}</p>
+    <p class="source">${selectedQuote['source']}<span class="citation">${selectedQuote['citation']}</span></p>
+    `
+  //If object has all the required values, [quote,source,citation,year]
+  } else {
+     html = 
+      `
+      <p class="quote">${selectedQuote['quote']}</p>
+      <p class="source">${selectedQuote['source']}<span class="citation">${selectedQuote['citation']}</span><span class="year">${selectedQuote['year']}</span></p>
+      `
+  }
+ 
+  document.querySelector('div.quote-box').innerHTML = html
+}
 
 
 
@@ -62,4 +115,4 @@ console.log(getRandomQuote());
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
