@@ -70,6 +70,16 @@ quotes.push(
   }
 )
 
+//Random color function
+const getRandomColor  = () => {
+  let red = Math.random() * 256;
+  let blue = Math.random() * 256;
+  let green = Math.random() * 256;
+  
+  let color = `rgb(${red}, ${blue}, ${green})`
+  return color;
+  
+}
 
 
 
@@ -82,6 +92,21 @@ const getRandomQuote = () => {
 
  return quotes[index];
 };
+
+let interval;
+function settingInterval() {
+  interval = setInterval( () => {
+    printQuote()
+  }, 6000) 
+}
+
+settingInterval();
+
+function resetInterval() {
+  clearInterval(interval);
+  printQuote();
+  settingInterval();
+}
 
 
 /***
@@ -129,9 +154,19 @@ const printQuote = () => {
         <span class="citation">${selectedQuote['citation']}</span><span class="year">${selectedQuote['year']}</span></p>
       `
   }
+  let color = getRandomColor();
+  console.log(color)
+  document.querySelector('body').style.backgroundColor = getRandomColor();
  
   document.querySelector('div.quote-box').innerHTML = html
+
 }
+
+
+
+
+
+
 
 
 
@@ -141,4 +176,4 @@ const printQuote = () => {
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", resetInterval, false);
