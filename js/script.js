@@ -49,6 +49,7 @@ quotes.push(
 quotes.push(
   {quote: "The supreme art of war is to subdue the enemy without fighting.",
   source: "Sun Tzu",
+  tags: "War"
   }
 )
 
@@ -69,7 +70,8 @@ quotes.push(
 quotes.push(
   {quote: "Diplomacy is a continuation of war by other means.",
   source: "Zhou En Lai",
-  year: "1898-1976"
+  year: "1898-1976",
+  tags: "Politics"
   }
 )
 quotes.push(
@@ -85,6 +87,8 @@ quotes.push(
   tags: "Change"
   }
 )
+
+
 
 //Random color function
 const getRandomColor  = () => {
@@ -123,6 +127,7 @@ const printQuote = () => {
   //Calling getRandomQuote() function
   let selectedQuote = getRandomQuote();
 
+  
   //declaring html variable and adding the required fileds
   let html =  
   `
@@ -160,13 +165,25 @@ const printQuote = () => {
         <span class="citation">${selectedQuote['citation']}</span><span class="year">${selectedQuote['year']}</span></p>
       `
   }
+
+
+  // Adding tags property into html if there is one
+    if (selectedQuote['tags']){
+      html += `<p>Tags: ${selectedQuote['tags']}</p>`
+    }
+  
+
+  //generate random color and applying it when button is clicked
   let color = getRandomColor();
-  console.log(color)
   document.querySelector('body').style.backgroundColor = getRandomColor();
  
+
+
+  //Adding html from js file
   document.querySelector('div.quote-box').innerHTML = html
 
-  // clearing interval if there is any ongoing intervals, if not there will be multiple intervals being set up everytime changeQuote button is click
+  /* clearing interval if there is any ongoing intervals, if not there will be multiple intervals 
+   being set up everytime changeQuote button is click */
   clearInterval(interval);
 
   //setting new interval when the button is clicked 
