@@ -93,20 +93,10 @@ const getRandomQuote = () => {
  return quotes[index];
 };
 
-let interval;
-function settingInterval() {
-  interval = setInterval( () => {
-    printQuote()
-  }, 6000) 
-}
 
-settingInterval();
-
-function resetInterval() {
-  clearInterval(interval);
-  printQuote();
-  settingInterval();
-}
+let interval = setInterval( () => {
+  printQuote()
+}, 20000) 
 
 
 /***
@@ -130,7 +120,7 @@ const printQuote = () => {
   } 
 
 
-//If object doesnt have citation
+//If object doesnt have citation but has a year
   else if (!selectedQuote.citation && selectedQuote.year){
     html += 
     `
@@ -138,7 +128,7 @@ const printQuote = () => {
     ` 
   } 
 
-  // If object doesn't have year
+  // If object doesn't have year but has a citation
   else if (!selectedQuote.year && selectedQuote.citation) {
     html += 
     `
@@ -160,6 +150,15 @@ const printQuote = () => {
  
   document.querySelector('div.quote-box').innerHTML = html
 
+  // clearing interval if there is any ongoing intervals, if not there will be multiple intervals being set up everytime changeQuote button is click
+  clearInterval(interval);
+
+  //setting new interval when the button is clicked 
+  interval = setInterval( () => {
+    printQuote()
+  }, 20000) 
+  
+
 }
 
 
@@ -176,4 +175,4 @@ const printQuote = () => {
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", resetInterval, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
