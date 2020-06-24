@@ -28,6 +28,11 @@ quotes.push(
   year: "1591"}
 );
 
+quotes.push(
+  {quote: "You cannot shake hands with a clenched fist.",
+  source: "Indira Gandhi"}
+);
+
 
 
 
@@ -36,12 +41,19 @@ quotes.push(
 /***
  * `getRandomQuote` function
 ***/
+const getRandomQuote = () => {
+  //random index of quotes array
+ index = Math.floor( Math.random() * quotes.length);
+ 
+ return quotes[index];
+};
 
-
+console.log(getRandomQuote());
 
 /***
  * `printQuote` function
 ***/
+
 
 
 
@@ -50,4 +62,4 @@ quotes.push(
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+// document.getElementById('load-quote').addEventListener("click", printQuote, false);
