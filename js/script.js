@@ -7,14 +7,11 @@ project 1 - A Random Quote Generator
 //use strict mode to make code less error-prone
 "use strict";
 
-
 /*** 
  * `quotes` array 
 ***/
 //Created empty quotes array to store Quotes(object)
 let quotes = [];
-
-
 
 
 //Adding quotes
