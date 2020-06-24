@@ -44,8 +44,31 @@ quotes.push(
   }
 )
 
+quotes.push(
+  {quote: "The supreme art of war is to subdue the enemy without fighting.",
+  source: "Sun Tzu",
+  }
+)
 
 
+quotes.push(
+  {quote: "It is during our darkest moments that we must focus to see the light.",
+  source: "Aristotle",
+  }
+)
+
+quotes.push(
+  {quote: "It is during our darkest moments that we must focus to see the light.",
+  source: "Aristotle",
+  }
+)
+
+quotes.push(
+  {quote: "Diplomacy is a continuation of war by other means.",
+  source: "Zhou En Lai",
+  year: "1898-1976"
+  }
+)
 
 
 
