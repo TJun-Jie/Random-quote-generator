@@ -22,7 +22,8 @@ quotes.push(
   {quote: 'Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.',
   source: 'Patrick McKenzie',
   citation: 'Twitter',
-  year: '2016'}
+  year: '2016',
+  tags: 'Technology'}
 );
 
 quotes.push(
@@ -35,6 +36,7 @@ quotes.push(
 quotes.push(
   {quote: "You cannot shake hands with a clenched fist.",
   source: "Indira Gandhi",
+  tags: "Peace"
   }
 );
 
@@ -54,6 +56,7 @@ quotes.push(
 quotes.push(
   {quote: "It is during our darkest moments that we must focus to see the light.",
   source: "Aristotle",
+  tags: "Motivational"
   }
 )
 
@@ -67,6 +70,19 @@ quotes.push(
   {quote: "Diplomacy is a continuation of war by other means.",
   source: "Zhou En Lai",
   year: "1898-1976"
+  }
+)
+quotes.push(
+  {quote: "War is a cowardly escape from the problems of peace.",
+  source: "Thomas Mann",
+  year: "1875-1955",
+  tags: "War"
+  }
+)
+quotes.push(
+  {quote: "Change has a considerable psychological impact on the human mind. To the fearful it is threatening because it means that things may get worse. To the hopeful it is encouraging because things may get better. To the confident it is inspiring because the challenge exists to make things better.",
+  source: "King Whitney Jr.",
+  tags: "Change"
   }
 )
 
